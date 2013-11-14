@@ -58,7 +58,8 @@ public class Global extends GlobalSettings {
 
 	@Override
 	public <A> A getControllerInstance(Class<A> clazz) {
-		return BeanProvider.getContextualReference(clazz);
+		return BeanProvider.getContextualReference(
+				cdiContainer.getBeanManager(), clazz, false);
 	}
 
 }
